@@ -11,11 +11,24 @@ dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 
+// Define allowed origins
+const allowedOrigins = [
+  'http://localhost:5173', // Local development
+  'https://effulgent-pudding-2ca2ed.netlify.app', // Your Netlify frontend
+];
+
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Enable cookies and auth headers
 }));
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
