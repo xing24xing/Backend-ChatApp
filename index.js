@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://twinkkletalk.netlify.app',
     credentials: true
 }));
 app.use(cookieParser());
