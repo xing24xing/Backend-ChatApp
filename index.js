@@ -14,18 +14,11 @@ const PORT = process.env.PORT || 8080;
 // Define allowed origins
 const allowedOrigins = [
     'https://twinkkletalk.netlify.app', // Your Netlify app domain
-    // Add any other domains you want to allow here
 ];
 
 // Middleware
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: allowedOrigins,
     credentials: true, // Enable cookies and auth headers
 }));
 
