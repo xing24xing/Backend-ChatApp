@@ -1,4 +1,3 @@
-
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -14,9 +13,8 @@ const PORT = process.env.PORT || 8080;
 
 // Define allowed origins
 const allowedOrigins = [
-    'https://67051667cfb9a52ec0ec5e50--twinkkletalk.netlify.app', // your actual Netlify domain
-    
-    // add more allowed origins if needed
+    'https://twinkkletalk.netlify.app', // Your Netlify app domain
+    // Add any other domains you want to allow here
 ];
 
 // Middleware
