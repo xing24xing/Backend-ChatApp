@@ -11,17 +11,11 @@ dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 
-// Define allowed origins
-const allowedOrigins = [
-    'https://twinkkletalk.netlify.app', // Your Netlify app domain
-];
-
 // Middleware
 app.use(cors({
-    origin: allowedOrigins,
-    credentials: true, // Enable cookies and auth headers
+    origin: 'https://twinkkletalk.netlify.app',
+    credentials: true
 }));
-
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
